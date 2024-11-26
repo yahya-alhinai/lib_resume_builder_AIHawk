@@ -1,0 +1,240 @@
+/* Paper Settings and Base Layout */
+@page {
+    size: letter;
+    margin: 0.3in 0.3in 0.3in 0.5in;
+}
+
+:root {
+    --main-text: #000000;
+    --section-spacing: 10pt;
+    --item-spacing: 3pt;
+    --entry-spacing: 8pt;
+    --line-space: 1.15;
+    --accent-color: #2d7788;
+    --link-color: #2d7788;
+}
+
+body {
+    font-family: 'Carlito', 'Calibri', sans-serif;
+    font-size: 11pt;
+    line-height: var(--line-space);
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.3in 0.5in 0.3in 0.3in;
+    color: var(--main-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    margin-bottom: var(--section-spacing);
+}
+
+header h1 {
+    font-size: 24pt;
+    font-weight: 900;
+    margin: 0 0 4pt 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12pt;
+    margin: 4pt 0;
+    line-height: 1;
+}
+
+.contact-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 4pt;
+    font-size: 11pt;
+}
+
+.contact-info a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Font Awesome Icons */
+.fas, .fab {
+    color: var(--accent-color);
+    font-size: 12pt;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 0 2pt 0;
+    border-bottom: 0.9pt solid var(--main-text);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin-bottom: 6pt;
+}
+
+/* Section Layout */
+section {
+    margin: var(--section-spacing) 0;
+    page-break-inside: avoid;
+}
+
+section:first-child {
+    margin-top: 0;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+/* Entry Layout */
+.entry {
+    margin-bottom: var(--entry-spacing);
+}
+
+.entry:last-child {
+    margin-bottom: 0;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2pt;
+    line-height: 1.2;
+}
+
+.entry-name {
+    font-weight: 700;
+    font-size: 11pt;
+}
+
+.entry-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 2pt 0;
+    line-height: 1.2;
+}
+
+.entry-title {
+    font-style: italic;
+}
+
+.entry-year, .entry-location {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Lists and Bullets */
+.compact-list {
+    margin: 4pt 0;
+    padding-left: 12pt;
+    list-style: none;
+}
+
+.compact-list li {
+    position: relative;
+    margin-bottom: var(--item-spacing);
+    line-height: var(--line-space);
+    text-align: justify;
+}
+
+.compact-list li:last-child {
+    margin-bottom: 0;
+}
+
+.compact-list li::before {
+    content: "•";
+    position: absolute;
+    left: -10pt;
+    font-size: 8pt;
+    top: 2pt;
+}
+
+/* Two Column Layout */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20pt;
+}
+
+.two-column .compact-list {
+    margin: 0;
+}
+
+/* Side Projects Section */
+#side-projects .entry-name {
+    display: flex;
+    align-items: center;
+    gap: 6pt;
+}
+
+#side-projects .entry-name a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+#side-projects .entry-name a:hover {
+    text-decoration: underline;
+}
+
+/* Achievements and Certifications */
+#achievements .compact-list strong,
+#certifications .compact-list strong {
+    color: var(--main-text);
+    font-weight: 700;
+}
+
+/* Skills and Languages */
+#skills-languages .compact-list li {
+    margin-bottom: 2pt;
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        padding: 0.3in 0.5in 0.3in 0.3in;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--main-text);
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+
+    .fas, .fab {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Link Formatting */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
